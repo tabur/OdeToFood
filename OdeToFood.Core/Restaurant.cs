@@ -4,12 +4,8 @@ using System.Text;
 
 namespace OdeToFood.Core
 {
-    public class Restaurant
+    public partial class Restaurant
     {
-        public enum CuisineType
-        {
-
-        }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
