@@ -12,23 +12,23 @@ namespace OdeToFood.Pages.Restaurants
 {
     public class ListModel : PageModel
     {
-        private readonly IConfiguration config;
         private readonly IRestaurantData restaurantData;
-        public string Message { get; set; }
+      
         public IEnumerable<Restaurant> Restaurants { get; set; }
-    public IRestaurantData RestaurantData { get; }
 
-        public ListModel( IConfiguration config, 
-                          IRestaurantData restaurantData)
+        // ASP model binding. By default only populates on POST
+        [BindProperty(SupportsGet = true)]
+        public String SearchTerm { get; set; }
+
+        public ListModel(IRestaurantData restaurantData)
         {
-            this.config = config;
             this.restaurantData = restaurantData;
         }
 
-        public void OnGet()
+        public void OnGet(string searchTerm)
         {
-            Message = config["Message"];
-            Restaurants = restaurantData.GetAll();
+            SearchTerm = searchTerm;
+            Restaurants = restaurantData.GetRestaurantsByName(searchTerm);
         }
     }
 }
