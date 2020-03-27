@@ -30,11 +30,17 @@
         <td>@restaurant.Location</td>
         <td>@restaurant.Cuisine</td>
         <td>
-            <a class="btn"asp-page="./Detail" asp-route-restaurantId="@restaurant.Id"><i class="fa fa-search-plus"></i></a>
+            <a class="btn" asp-page="./Detail" asp-route-restaurantId="@restaurant.Id">
+                <i class="fa fa-search-plus"></i>
+            </a>
+            <a class="btn" asp-page="./Edit" asp-route-restaurantId="@restaurant.Id">
+                <i class="fa fa-edit"></i>
+            </a>
+
         </td>
     </tr>
     }
 </table>
-
+<a asp-page="./Edit" class="btn btn-primary">Add Restaurant</a>
 
 
