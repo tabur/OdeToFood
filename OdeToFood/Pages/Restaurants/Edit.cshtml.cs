@@ -63,7 +63,6 @@ namespace OdeToFood.Pages.Restaurants
                 Restaurant = restaurantData.Add(Restaurant);
                 TempData["Message"] = "Restaurant added.";
             }
-            Restaurant = restaurantData.Update(Restaurant);
             restaurantData.Commit();
             return RedirectToPage("./Detail", new { restaurantId = Restaurant.Id });
             
